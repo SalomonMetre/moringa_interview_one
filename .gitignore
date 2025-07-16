@@ -7,3 +7,5 @@
 !src/**/*
 
 !requirements.txt
+
+!src/rag_simple/documents.json
