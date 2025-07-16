@@ -6,6 +6,9 @@ import json
 import os
 import time
 from typing import List, Tuple
+from pathlib import Path
+
+base_dir = Path(__file__).parent.resolve()
 
 # --- Streamlit Configuration ---
 st.set_page_config(
@@ -102,8 +105,10 @@ def get_config():
     return {
         "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         "embedding_model_name": "all-MiniLM-L6-v2",
-        "documents_file": "documents.json",
-        "embeddings_file": "document_embeddings.pt" # File to store embeddings
+        # "documents_file": "documents.json",
+        # "embeddings_file": "document_embeddings.pt" # File to store embeddings
+        "documents_file": str(base_dir / "documents.json"),
+        "embeddings_file": str(base_dir / "document_embeddings.pt")
     }
 
 # --- Model Loading with Caching ---
